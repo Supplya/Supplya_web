@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~@fortawesome/fontawesome-free/css/all.css";
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;0,9..40,1000;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900;1,9..40,1000&display=swap');
 /* FONT STYLE */
 
@@ -20,6 +21,7 @@
     padding: 14px 60px!important;
     border-radius: 8px!important;
 }
+
 .btn-primary-nav{
     background-color: #42189A!important;
     border: none !important;
@@ -65,6 +67,23 @@
 }
 .bg-secondary{
     background-color: #ED8939!important;
+}
+.btn-secondary{
+    background-color: #ED8939!important;
+    border: none !important;
+    box-shadow: none !important;
+    color: white!important;
+    padding: 14px 60px!important;
+    border-radius: 8px!important;
+}
+
+.btn-primary:hover{
+    background-color: #ED8939!important;
+    border: none !important;
+    box-shadow: none !important;
+    color: white!important;
+    padding: 14px 60px!important;
+    border-radius: 8px!important;
 }
 /*END OF SECONDARY TEXT -===========================================================*/
 

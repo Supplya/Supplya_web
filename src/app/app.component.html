@@ -1,5 +1,5 @@
-
-<router-outlet></router-outlet>
+<app-loader *ngIf="loading"></app-loader>
+<router-outlet *ngIf="!loading"></router-outlet>
 
 
 

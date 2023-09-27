@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-breadcrumb',
@@ -6,5 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./breadcrumb.component.css']
 })
 export class BreadcrumbComponent {
+
+
+  @Input()
+  pageTitle = "";
+
+  @Input()
+  resetLink = " ";
+
+  @Input()
+HomeLink = "Home";
+@Input()
+currentPageLink = "";
+@Input()
+searchResult: any;
+@Input()
+previousLink = '';
 
 }

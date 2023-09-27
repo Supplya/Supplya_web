@@ -6,6 +6,7 @@ import { ContactComponent } from './Pages/contact/contact.component';
 import { ShopComponent } from './Pages/shop/shop.component';
 import { SignInComponent } from './Auth/sign-in/sign-in.component';
 import { SignUpComponent } from './Auth/sign-up/sign-up.component';
+import { ProductDetailsComponent } from './Pages/Operations/product-details/product-details.component';
 
 const routes: Routes = [{
   path: '', component: HomeComponent
@@ -25,6 +26,9 @@ const routes: Routes = [{
 
 {
   path: 'shop', component: ShopComponent
+},
+{
+  path: 'product-details', component: ProductDetailsComponent
 }
 ];
 
