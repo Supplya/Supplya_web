@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./shopping-cart.component.css']
 })
 export class ShoppingCartComponent {
-
+  quantity: number = 1;
+  changeQuantity(delta: number, cartItem: any) {
+    
+    cartItem.quantity += delta;
+    if (cartItem.quantity < 1) {
+      cartItem.quantity = 1;
+    }
+    // this.cartService.changeQuantity(cartItem.food.id, cartItem.quantity);
+  }
 }

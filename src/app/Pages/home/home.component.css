@@ -4,16 +4,17 @@
      font-weight: 500;
      letter-spacing: 0em;
      color: #000000;
-
-
  }
 
  .heroLeft h5 {
-
      font-size: 72px;
      font-weight: 700;
      letter-spacing: 0em;
-
+ }
+ .heroLeft h3 {
+     font-size: 40px;
+     font-weight: 700;
+     letter-spacing: 0em;
  }
 
  .heroLeft p {
@@ -35,6 +36,13 @@
  .qualityRight h5 {
 
      font-size: 65px;
+     font-weight: 700;
+     color: #000;
+
+ }
+ .qualityRight h3 {
+
+     font-size: 40px;
      font-weight: 700;
      color: #000;
 
@@ -121,6 +129,28 @@
      justify-content: center;
      align-items: center!important;
  }
+ .retail-mobile {
+    background-color: #42189A;
+    border-radius: 30px 30px 30px 30px !important;
+ }
+
+ .retail-mobile h5 {
+
+    font-size: 40px;
+    font-weight: 500;
+    color: white;
+
+}
+
+
+.retail-mobile p {
+    font-family: DM Sans;
+    font-size: 16px;
+    font-weight: 400;
+    color: white;
+
+
+}
 
  .retail h5 {
 
@@ -145,12 +175,9 @@
 }
  .core h6{
 color: white;
-font-size: 18px;
+font-size: 20px;
 font-weight: 700;
 padding: 10px;
-
-
-
  }
  .core p{
     

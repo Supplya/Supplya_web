@@ -21,3 +21,7 @@ color: white;
     /* text-align: left; */
     
 }
+.social img{
+margin-right: 6px;
+cursor: pointer;
+}

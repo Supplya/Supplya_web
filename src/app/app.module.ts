@@ -19,6 +19,7 @@ import { ShoppingCartComponent } from './Pages/Operations/shopping-cart/shopping
 import { ShippingInfoComponent } from './Pages/Operations/shipping-info/shipping-info.component';
 import { OrderCompletedComponent } from './Pages/Operations/order-completed/order-completed.component';
 import { LoaderComponent } from './Views/loader/loader.component';
+import { HorizontalScrollDirective } from './Directives/horizontal-scroll.directive';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { LoaderComponent } from './Views/loader/loader.component';
     ShoppingCartComponent,
     ShippingInfoComponent,
     OrderCompletedComponent,
-    LoaderComponent
+    LoaderComponent,
+    HorizontalScrollDirective
   ],
   imports: [
     BrowserModule,

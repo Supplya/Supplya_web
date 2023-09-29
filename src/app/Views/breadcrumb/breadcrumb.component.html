@@ -9,7 +9,7 @@
                     <!-- Added a new div for centering -->
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item breadcrumb-text text-dark text-decoration-none"><a href="/">{{HomeLink}} {{searchResult}}</a></li>
-                        <li class="breadcrumb-item  text-black" aria-current="page">{{previousLink}}</li>
+                        <li *ngIf="previousLink" class="breadcrumb-item  text-black" aria-current="page">{{previousLink}}</li>
                         <li class="breadcrumb-item active text-secondary" aria-current="page">{{currentPageLink}}</li>
                     </ol>
                 </div>
