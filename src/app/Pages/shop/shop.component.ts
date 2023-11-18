@@ -1,4 +1,7 @@
-import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { CartService } from 'src/app/Services/cart.service';
+import { ProductService } from 'src/app/Services/product.service';
 
 
 @Component({
@@ -6,9 +9,38 @@ import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.css']
 })
-export class ShopComponent {
+export class ShopComponent implements OnInit {
+  products: any;
+  onSubmit: boolean = false;
+    constructor(private productService: ProductService, private cartService: CartService, private route: Router) { }
+    ngOnInit(): void {
+      this.getAllProducts();
+    }
   
+  
+    getAllProducts() {
+      this.productService.getAllProducts().subscribe((data: any) => {
+        this.products = data;
+        console.log(data, 'products');
+      },
+      )
+    }
 
+    getStarsArray(rating: number): string[] {
+        if (rating <= 0) {
+          return Array(5).fill('&#9734;'); // Return an array with 5 empty stars
+        }
+    
+        const filledStars = Array(rating).fill('&#9733;');
+        const emptyStars = Array(5 - rating).fill('&#9734;');
+        return filledStars.concat(emptyStars);
+      }
+
+    addToCart(product: any) {
+        this.onSubmit = true;
+        this.cartService.addToCart(product);
+        console.log(product, 'product')
+      }
    scrollLeft() {
     const wrapper = document.querySelector('.wrapper-item');
     const scrollAmount = 200; // Adjust as needed
@@ -35,7 +67,10 @@ export class ShopComponent {
     }
 }
 
-
+viewProduct(route: number) {
+    this.route.navigate(['product-details/', `${route}`]);
+    window.scrollTo(0, 0);
+  }
 
   
 }

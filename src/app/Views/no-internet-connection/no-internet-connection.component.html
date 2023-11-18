@@ -1,1 +1,6 @@
-<p>no-internet-connection works!</p>
+<!-- no-internet-connection.component.html -->
+<div *ngIf="!isOnline" class="no-internet">
+    <p>No Internet Connection</p>
+    <button (click)="reloadPage()">Reload</button>
+  </div>
+  

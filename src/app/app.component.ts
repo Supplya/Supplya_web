@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
+import { NetworkStatusService } from './Services/network-status.service';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +9,10 @@ import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Rout
 })
 export class AppComponent implements OnInit{
   title = 'Supplya_web';
-
+  isOnline = true;
   loading = true;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private networkStatusService: NetworkStatusService) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         this.loading = true;
@@ -26,8 +27,12 @@ export class AppComponent implements OnInit{
     setTimeout(() => {
       this.loading = false;
     }, 3000);
+
   }
-}
+  }
+
+  
+
 
 
 

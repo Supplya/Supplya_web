@@ -20,6 +20,9 @@ import { ShippingInfoComponent } from './Pages/Operations/shipping-info/shipping
 import { OrderCompletedComponent } from './Pages/Operations/order-completed/order-completed.component';
 import { LoaderComponent } from './Views/loader/loader.component';
 import { HorizontalScrollDirective } from './Directives/horizontal-scroll.directive';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { Server } from 'src/assets/apConfig';
+import { ErrorHandlingInterceptor } from './Interceptors/error-handling.interceptor';
 
 @NgModule({
   declarations: [
@@ -44,9 +47,15 @@ import { HorizontalScrollDirective } from './Directives/horizontal-scroll.direct
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [Server, 
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorHandlingInterceptor,
+      multi: true,
+    },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

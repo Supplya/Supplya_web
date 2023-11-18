@@ -17,6 +17,14 @@
 
 }
 
+
+ .addTo {
+    font-size: 15px;
+    font-weight: 500;
+    background: #ED8939;
+    color: white;
+    cursor: pointer;
+}
 .category-card {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     text-align: center;

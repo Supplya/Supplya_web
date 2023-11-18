@@ -1,0 +1,18 @@
+.no-internet {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f00;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    z-index: 9999;
+  }
+  
+  .no-internet button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
