@@ -57,6 +57,7 @@ export class CartService {
   clearCart() {
     this.cart = new Cart();
     this.setCartToLocalStorage();
+    alert('Cart Cleared Successfully');
   }
 
   changeQuantity1(foodId: number, quantity: number) {

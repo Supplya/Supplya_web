@@ -34,16 +34,16 @@
                 
             </div>
             <div class="col-lg-6 align-items-center p-4">
-                <h5 class="">{{product.name}}</h5>
-                <p>{{ product.quantity }} Unit 
-                  <span class="text-warning" *ngFor="let star of getStarsArray(product.rating); let i = index" [innerHTML]="star"></span>
+                <h5 class="">{{product?.name}}</h5>
+                <p>{{ product?.quantity }} Unit 
+                  <span class="text-warning" *ngFor="let star of getStarsArray(product?.rating); let i = index" [innerHTML]="star"></span>
                 </p>
                 
-                <h6 >{{ product.price |
+                <h6 >{{ product?.price |
                   currency: '₦' :'symbol':'1.0-0'}} <span class="text-secondary" style="text-decoration: line-through;">$35.00</span></h6>
                 <p >Color: <span class="text-secondary">Blue</span></p>
 
-                <p class="description text-muted">{{ product.description }}</p>
+                <p class="description text-muted">{{ product?.description }}</p>
                 <div class="d-flex">
                     <p (click)="addToCart(product)" class="btn cart">Add to Cart</p> 
                 </div>

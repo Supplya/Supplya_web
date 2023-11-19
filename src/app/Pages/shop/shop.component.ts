@@ -20,7 +20,7 @@ export class ShopComponent implements OnInit {
   
     getAllProducts() {
       this.productService.getAllProducts().subscribe((data: any) => {
-        this.products = data;
+        this.products = data.products;
         console.log(data, 'products');
       },
       )
@@ -39,6 +39,7 @@ export class ShopComponent implements OnInit {
     addToCart(product: any) {
         this.onSubmit = true;
         this.cartService.addToCart(product);
+        alert('Added product');
         console.log(product, 'product')
       }
    scrollLeft() {

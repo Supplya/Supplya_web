@@ -23,6 +23,7 @@ import { HorizontalScrollDirective } from './Directives/horizontal-scroll.direct
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { Server } from 'src/assets/apConfig';
 import { ErrorHandlingInterceptor } from './Interceptors/error-handling.interceptor';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,8 @@ import { ErrorHandlingInterceptor } from './Interceptors/error-handling.intercep
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [Server, 
     {

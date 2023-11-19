@@ -21,9 +21,11 @@ export class ProductService {
   addNewProduct(product: any): Observable<any> {
     return this.http.post<any>(`${this.productUrl}`, product);
   }
+  
   getProductId(id: any): Observable<any> {
-    return this.http.get<any>(`${this.productUrl}` + id);
+    return this.http.get<any>(`${this.productUrl}products/` + id);
   }
+
 
   getAllProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.productUrl}products`);

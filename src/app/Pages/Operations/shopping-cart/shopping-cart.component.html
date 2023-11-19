@@ -24,12 +24,12 @@
                      
                 
                       <!-- Product 2 -->
-                      <div class="row mb-4 border-bottom">
+                      <div class="row mb-4 border-bottom" *ngFor="let item of cart.items">
                         <!-- Product Image Column -->
                         <div class="col-lg-5 position-relative cart-product-img ">
                           <!-- Remove Icon -->
                           <span class="position-absolute top-0 start-1">
-                            <button class="btn" title="Remove this item">X</button>
+                            <button class="btn" title="Remove this item" (click)="removeFromCart(item)">X</button>
                           </span>
                           <!-- Product Image -->
                           <div class="d-flex justify-content-start ">
@@ -37,11 +37,11 @@
                               <img src="/assets/Images/Rectangle 134.png" style="width: 96px; height: 96px; margin-right: 10px;" alt="Product Image" class="img-fluid img-thumbnail mb-2">
                               <!-- Product Details -->
                               <div class="mt-2">
-                                <h5 class="mb-1 title">Product Name</h5>
+                                <h5 class="mb-1 title">{{item.product.name}}</h5>
                                 <p class="mb-1 tag">Color: <span class="text-primary">Red</span></p>
                                 <p class="mb-0 tag">Size: <span class="text-primary">XL</span></p>
                                 <!-- FOR MOBILE -->
-                                <p class="mb-0 tag  mobile-only"> <span class="text-dark  fs-5 ">{{15000 | currency: '₦'}}</span></p>
+                                <p class="mb-0 tag  mobile-only"> <span class="text-dark  fs-5 ">{{item.price || 0 | currency: '₦' :'symbol':'1.0-0'}}</span></p>
 
                             <div class="py-3 mobile-only ">
 
@@ -49,7 +49,7 @@
                             
                             
                                     <button (click)="changeQuantity(-1, quantity)" class="quantity-button">-</button>
-                                    <input type="number" value="12345"  readonly class="quantity-input no-border-padding form-control">
+                                    <input type="number" [(ngModel)]="item.quantity"  readonly class="quantity-input no-border-padding form-control">
                                     <button (click)="changeQuantity(1, quantity)" class="quantity-button">+</button>
                               
                                   </div>
@@ -61,7 +61,7 @@
                         <!-- Price -->
                         <!-- FOR LARGE SCREEN -->
                         <div class="col-lg-2 text-center align-self-center">
-                          <p class="price d-lg-block d-none mt-2"> $70,000.00</p>
+                          <p class="price d-lg-block d-none mt-2"> {{item.product.price || 0 | currency: '₦' :'symbol':'1.0-0'}}</p>
                         </div>
                         <!-- Quantity -->
                         <div class="col-lg-3 d-flex justify-content-center align-items-center">
@@ -73,7 +73,7 @@
 
 
         <button (click)="changeQuantity(-1, quantity)" class="quantity-button">-</button>
-        <input type="number"  readonly class="quantity-input no-border-padding form-control">
+        <input type="number" [(ngModel)]="item.quantity" readonly class="quantity-input no-border-padding form-control">
         <button (click)="changeQuantity(1, quantity)" class="quantity-button">+</button>
       </div>
 </div>
@@ -81,137 +81,14 @@
                         <!-- Total -->
                         <div class="col-lg-2 text-center align-self-center">
                           <!-- <p class="price  d-none d-lg-block"> $70,000.00</p> -->
-                          <p class="price d-lg-block d-none mt-2"> $70,000.00</p>
+                          <p class="price d-lg-block d-none mt-2"> {{item.price || 0 | currency: '₦' :'symbol':'1.0-0'}}</p>
                          
                         </div>
                       </div>
-                      <!-- Product 2 -->
-                      <div class="row mb-4 border-bottom">
-                        <!-- Product Image Column -->
-                        <div class="col-lg-5 position-relative cart-product-img ">
-                          <!-- Remove Icon -->
-                          <span class="position-absolute top-0 start-1">
-                            <button class="btn" title="Remove this item">X</button>
-                          </span>
-                          <!-- Product Image -->
-                          <div class="d-flex justify-content-start ">
-              
-                              <img src="/assets/Images/Rectangle 134.png" style="width: 96px; height: 96px; margin-right: 10px;" alt="Product Image" class="img-fluid img-thumbnail mb-2">
-                              <!-- Product Details -->
-                              <div class="mt-2">
-                                <h5 class="mb-1 title">Product Name</h5>
-                                <p class="mb-1 tag">Color: <span class="text-primary">Red</span></p>
-                                <p class="mb-0 tag">Size: <span class="text-primary">XL</span></p>
-                                <!-- FOR MOBILE -->
-                                <p class="mb-0 tag  mobile-only"> <span class="text-dark  fs-5 ">{{15000 | currency: '₦'}}</span></p>
-
-                            <div class="py-3 mobile-only ">
-
-                                <div class="quantity-selector-mobile ">
-                            
-                            
-                                    <button (click)="changeQuantity(-1, quantity)" class="quantity-button">-</button>
-                                    <input type="number" value="12345"  readonly class="quantity-input no-border-padding form-control">
-                                    <button (click)="changeQuantity(1, quantity)" class="quantity-button">+</button>
-                              
-                                  </div>
-                            </div>
-                            <!-- FOR MOBILE END -->
-                              </div>
-                          </div>
-                        </div>
-                        <!-- Price -->
-                        <!-- FOR LARGE SCREEN -->
-                        <div class="col-lg-2 text-center align-self-center">
-                          <p class="price d-lg-block d-none mt-2"> $70,000.00</p>
-                        </div>
-                        <!-- Quantity -->
-                        <div class="col-lg-3 d-flex justify-content-center align-items-center">
-       <!-- FOR LARGE SCREEN                    -->
-
-<div class="d-lg-block d-none">
-
-    <div class="quantity-selector ">
-
-
-        <button (click)="changeQuantity(-1, quantity)" class="quantity-button">-</button>
-        <input type="number"  readonly class="quantity-input no-border-padding form-control">
-        <button (click)="changeQuantity(1, quantity)" class="quantity-button">+</button>
-      </div>
-</div>
-                        </div>
-                        <!-- Total -->
-                        <div class="col-lg-2 text-center align-self-center">
-                          <!-- <p class="price  d-none d-lg-block"> $70,000.00</p> -->
-                          <p class="price d-lg-block d-none mt-2"> $70,000.00</p>
-                         
-                        </div>
-                      </div>
-                      <!-- Product 2 -->
-                      <div class="row mb-4 border-bottom">
-                        <!-- Product Image Column -->
-                        <div class="col-lg-5 position-relative cart-product-img ">
-                          <!-- Remove Icon -->
-                          <span class="position-absolute top-0 start-1">
-                            <button class="btn" title="Remove this item">X</button>
-                          </span>
-                          <!-- Product Image -->
-                          <div class="d-flex justify-content-start ">
-              
-                              <img src="/assets/Images/Rectangle 134.png" style="width: 96px; height: 96px; margin-right: 10px;" alt="Product Image" class="img-fluid img-thumbnail mb-2">
-                              <!-- Product Details -->
-                              <div class="mt-2">
-                                <h5 class="mb-1 title">Product Name</h5>
-                                <p class="mb-1 tag">Color: <span class="text-primary">Red</span></p>
-                                <p class="mb-0 tag">Size: <span class="text-primary">XL</span></p>
-                                <!-- FOR MOBILE -->
-                                <p class="mb-0 tag  mobile-only"> <span class="text-dark  fs-5 ">{{15000 | currency: '₦'}}</span></p>
-
-                            <div class="py-3 mobile-only ">
-
-                                <div class="quantity-selector-mobile ">
-                            
-                            
-                                    <button (click)="changeQuantity(-1, quantity)" class="quantity-button">-</button>
-                                    <input type="number" value="12345"  readonly class="quantity-input no-border-padding form-control">
-                                    <button (click)="changeQuantity(1, quantity)" class="quantity-button">+</button>
-                              
-                                  </div>
-                            </div>
-                            <!-- FOR MOBILE END -->
-                              </div>
-                          </div>
-                        </div>
-                        <!-- Price -->
-                        <!-- FOR LARGE SCREEN -->
-                        <div class="col-lg-2 text-center align-self-center">
-                          <p class="price d-lg-block d-none mt-2"> $70,000.00</p>
-                        </div>
-                        <!-- Quantity -->
-                        <div class="col-lg-3 d-flex justify-content-center align-items-center">
-       <!-- FOR LARGE SCREEN                    -->
-
-<div class="d-lg-block d-none">
-
-    <div class="quantity-selector ">
-
-
-        <button (click)="changeQuantity(-1, quantity)" class="quantity-button">-</button>
-        <input type="number"  readonly class="quantity-input no-border-padding form-control">
-        <button (click)="changeQuantity(1, quantity)" class="quantity-button">+</button>
-      </div>
-</div>
-                        </div>
-                        <!-- Total -->
-                        <div class="col-lg-2 text-center align-self-center">
-                          <!-- <p class="price  d-none d-lg-block"> $70,000.00</p> -->
-                          <p class="price d-lg-block d-none mt-2"> $70,000.00</p>
-                         
-                        </div>
-                      </div>
+                   
                      <div class="d-flex justify-content-end clear-section mb-3">
 
-                         <button class="btn">Clear Cart</button>
+                         <button class="btn" (click)="clearCart()">Clear Cart</button>
                      </div>
                     </div>
                 
@@ -232,7 +109,7 @@
                               <!-- <hr style="margin: 10px;"/> -->
                               <div class="d-flex justify-content-between border-bottom mt-4">
                                 <p class="mb-2 heading">Total Price:</p>
-                                <h5 class="mb-2  cartItemPrice">{{15000 | currency: '₦'}}</h5>
+                                <h5 class="mb-2  cartItemPrice">{{cart.totalPrice | currency: '₦'}}</h5>
                               </div>
                             
                               <p class=" ship-text py-3">Shipping & taxes calculated at checkout</p>
